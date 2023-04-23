@@ -8,9 +8,45 @@
             "name": "Synchroniser données ouvertes",
             "type": "python",
             "request": "launch",
-            "module": "synchroniser_donnees",
+            "module": "synchroniser_donnees_ouvertes",
             "justMyCode": true,
             "cwd": "${workspaceFolder}/src"
+        },
+        {
+            "name": "Synchroniser données ouvertes - Télécharger",
+            "type": "python",
+            "request": "launch",
+            "module": "synchroniser_donnees_ouvertes",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/src",
+            "args": ["telecharger"]
+        },
+        {
+            "name": "Synchroniser données ouvertes - Importer",
+            "type": "python",
+            "request": "launch",
+            "module": "synchroniser_donnees_ouvertes",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/src",
+            "args": ["importer"]
+        },
+        {
+            "name": "Synchroniser données ouvertes - Importer fusion_scission",
+            "type": "python",
+            "request": "launch",
+            "module": "synchroniser_donnees_ouvertes",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/src",
+            "args": ["importer", "fusion_scission"]
+        },
+        {
+            "name": "Synchroniser données ouvertes - Importer continuation_transformation",
+            "type": "python",
+            "request": "launch",
+            "module": "synchroniser_donnees_ouvertes",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/src",
+            "args": ["importer", "continuation_transformation"]
         }
     ]
 }

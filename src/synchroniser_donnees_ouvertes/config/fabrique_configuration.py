@@ -1,9 +1,9 @@
-"""Module de fabriques pour les configurations"""
+"""Fabriques pour les configurations"""
 
 import os.path
 
-from synchroniser_donnees.config import configuration_unix
-from synchroniser_donnees.config import configuration_windows
+from . import ConfigurationUnix
+from . import ConfigurationWindows
 
 class FabriqueConfiguration:
     """Fabrique de fournisseur de configuration"""
@@ -17,8 +17,8 @@ class FabriqueConfiguration:
         config = None
 
         if os.name == "posix":
-            config = configuration_unix.ConfigurationUnix()
+            config = ConfigurationUnix()
         else:
-            config = configuration_windows.ConfigurationWindows()
+            config = ConfigurationWindows()
 
         return config

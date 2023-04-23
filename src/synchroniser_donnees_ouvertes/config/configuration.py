@@ -1,4 +1,4 @@
-"""Module de configuration"""
+"""Configuration"""
 
 import os.path
 import json
