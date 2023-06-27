@@ -1,0 +1,52 @@
+{
+    // Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
+    // Pointez pour afficher la description des attributs existants.
+    // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Synchroniser données ouvertes",
+            "type": "python",
+            "request": "launch",
+            "module": "synchroniser_donnees_ouvertes",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/src"
+        },
+        {
+            "name": "Synchroniser données ouvertes - Télécharger",
+            "type": "python",
+            "request": "launch",
+            "module": "synchroniser_donnees_ouvertes",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/src",
+            "args": ["telecharger"]
+        },
+        {
+            "name": "Synchroniser données ouvertes - Importer",
+            "type": "python",
+            "request": "launch",
+            "module": "synchroniser_donnees_ouvertes",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/src",
+            "args": ["importer"]
+        },
+        {
+            "name": "Synchroniser données ouvertes - Importer fusion_scission",
+            "type": "python",
+            "request": "launch",
+            "module": "synchroniser_donnees_ouvertes",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/src",
+            "args": ["importer", "fusion_scission"]
+        },
+        {
+            "name": "Synchroniser données ouvertes - Importer continuation_transformation",
+            "type": "python",
+            "request": "launch",
+            "module": "synchroniser_donnees_ouvertes",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/src",
+            "args": ["importer", "continuation_transformation"]
+        }
+    ]
+}
