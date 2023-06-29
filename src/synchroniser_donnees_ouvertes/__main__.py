@@ -128,7 +128,7 @@ def importer_continuation_transformation(config: dict, unite_travail: UniteTrava
         cle = f"{continuation_transformation.neq}-\
             {continuation_transformation.cod_typ_chang}-\
             {continuation_transformation.dat_efctvt}"
-        
+
         print(f"Mise à jour de la continuation/transformation {cle}")
         unite_travail.depot_continuation_transformation.mettre_a_jour(continuation_transformation)
         compteur += 1
@@ -159,6 +159,7 @@ def main():
     )
 
     subparsers = parser.add_subparsers(help="sub-command help", dest="subparser_name")
+    subparsers.add_parser("creer_configuration", help="creer_configuration help")
     subparsers.add_parser("telecharger", help="telecharger help")
     parser_importer = subparsers.add_parser("importer", help="importer help")
     parser_importer.add_argument(
@@ -183,6 +184,9 @@ def main():
         case None:
             telecharger(config)
             importer(config, unite_travail)
+
+        case "creer_configuration":
+            pass
 
         case "telecharger":
             telecharger(config)
