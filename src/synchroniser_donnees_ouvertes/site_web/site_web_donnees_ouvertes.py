@@ -4,7 +4,7 @@ import os
 import os.path
 import zipfile
 
-import requests
+from seleniumrequests import Firefox
 import bs4
 
 class SiteWebDonneesOuvertes:
@@ -18,6 +18,8 @@ class SiteWebDonneesOuvertes:
 
         self.__repertoire_telechargement = os.path.expanduser(config_repertoire["DonneesOuvertes"])
 
+        os.environ['MOZ_HEADLESS'] = '1'
+
     def __obtenir_date_mise_a_jour(self):
         """
         Obtient la date de dernière mise à jour des données ouvertes
@@ -25,8 +27,10 @@ class SiteWebDonneesOuvertes:
         cle_cache = "date_maj"
 
         if not cle_cache in self.__cache:
-            contenu = requests.get(self.__url, timeout=30)
-            soup = bs4.BeautifulSoup(contenu.text, "html.parser")
+            navigateur = Firefox()
+            navigateur.set_page_load_timeout(float(self.__timeout_page))
+            navigateur.get(self.__url)
+            soup = bs4.BeautifulSoup(navigateur.page_source, "html.parser")
 
             span = soup.find(name="span", attrs={"id": "CPHContenuGR_lblDate"})
             date = span.text
@@ -100,10 +104,13 @@ class SiteWebDonneesOuvertes:
         chemin_decompresse = chemin_zip[0:len(".zip") * -1]
 
         if self.mise_a_jour_est_disponible():
-            requete = requests.get(self.__url, timeout=self.__timeout_page)
-            soup = bs4.BeautifulSoup(requete.text, "html.parser")
+            navigateur = Firefox()
+            navigateur.set_page_load_timeout(float(self.__timeout_page))
+            navigateur.get(self.__url)
+            soup = bs4.BeautifulSoup(navigateur.page_source, "html.parser")
 
-            post = requests.post(
+            post = navigateur.request(
+                'POST', 
                 self.__url,
                 stream=True,
                 timeout=self.__timeout_donnees,

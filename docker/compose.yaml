@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:15.2
+    image: postgres:16.0
     hostname: postgres
     container_name: postgres
     ports:

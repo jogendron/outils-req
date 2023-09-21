@@ -34,6 +34,10 @@ Le module a été testé avec la version 3.11.3 de python. Exécutez la commande
     pip install -r dependances.txt
 ```
 
+### Pré-requis #3 : Avoir firefox d'installé
+
+Il faut pouvoir exécuter du javascript pour consulter la page des données ouvertes et télécharger le jeu de données. Pour se faire, on utilise firefox via selenium.
+
 ### Utilisation
 
 Commencez par initialiser le fichier de configuration de l'outil comme suit : 
